@@ -101,24 +101,6 @@ var game = {
 
 	bootstrap: function() { // funcao inicial da pagina do jogo
 		const imgQuiz = document.getElementById("imgQuiz");
-		const footer = document.getElementById("footer");
-
-		const url = "http://gateway.marvel.com/v1/public/characters?ts=1&apikey=8f28a142c27c5360c7d20fdef601a44a&hash=27839dd1a0d7b1435e1f374973e58adf" // url de chamada da API com a chave unida para meu usuario
-
-		// $.ajax({ // requisicao do tipo GET 
-		// 	url: url,
-		// 	type: "GET",
-		// 	success: function(res) { // caso de sucesso, guardo a resposta em memoria e chamo as funcoes para renderizar o body e o footer
-		// 		game.oDados = res;
-		// 		game.selecionaFigura()
-		// 		game.footer();
-		// 	},
-		// 	error: function(erro) { // em caso de erro, exibo a mensagem no console
-		// 		const mensagem = JSON.parse(erro.responseText);
-		// 		console.error(mensagem.message);
-		// 	}
-		// })
-
 		game.selecionaFigura();
 	},
 
@@ -147,19 +129,11 @@ var game = {
 				var html = '<img class="img-responsive width" src="' + img +'" />'
 
 				game.personagem = nome;
-				console.log(nome)
 				imgQuiz.innerHTML = html;
 			}
 		}
 			
 	},
-
-	// footer: function() { // funcao que imprime na tela os direitos da Marvel
-	// 	if(game.oDados) {
-	// 		const conteudo = game.oDados.attributionHTML;
-	// 		footer.innerHTML = conteudo;
-	// 	}
-	// },
 
 	responder: function() {
 		var resposta = document.getElementById('resposta').value.toUpperCase();
@@ -198,9 +172,6 @@ var game = {
 					game.outro();
 					game.pontuacao('menos');
 				}
-
-
-					
 				
 			}
 
